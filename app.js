@@ -12,6 +12,13 @@ var corsOptions = {
   credentials: true
 };
 
+
+
+
+
+
+
+
 app.get('/soundcloud/typeahead', cors(corsOptions), require('./api/scTypeAhead'))
 app.get('/soundcloud/resolver', cors(corsOptions), require('./api/scResolver'))
 app.get('/spotify/resolver', cors(corsOptions), require('./api/spotifyResolver'))
