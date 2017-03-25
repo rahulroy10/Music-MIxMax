@@ -13,15 +13,9 @@ var corsOptions = {
 };
 
 
-
-
-
-
-
-
-app.get('/soundcloud/typeahead', cors(corsOptions), require('./api/scTypeAhead'))
+app.get('/soundcloud/typeahead', cors(corsOptions), require('./api/scTypeahead'))
 app.get('/soundcloud/resolver', cors(corsOptions), require('./api/scResolver'))
 app.get('/spotify/resolver', cors(corsOptions), require('./api/spotifyResolver'))
-app.get('/spotify/typeahead', cors(corsOptions), require('./api/spotifyResolver'))
+app.get('/spotify/typeahead', cors(corsOptions), require('./api/spotifyTypeahead'))
 
 app.listen(3000)
