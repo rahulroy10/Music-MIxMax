@@ -19,18 +19,19 @@ def resolver():
     print(response.status_code)
     content = response.json() 
     song = content["tracks"]["items"][0]["album"]["artists"][0]["external_urls"]["spotify"]
-    toPrint =  """<iframe src="https://embed.spotify.com/?uri=spotify:artist:07QEuhtrNmmZ0zEcqE9SF6" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>"""
+    song2 = song.split("/")
+    toPrint =  """<iframe src="https://embed.spotify.com/?uri=spotify:artist:""" + song2[4] + """"width="300" height="380" frameborder="0" allowtransparency="true"></iframe>"""
     if song:
         data = {
             'body': toPrint
         }
         return toPrint, 200
-    # else:
-    #     data = {
-    #         'message': 'fuck'
-    #     }
-    #     return jsonify(data), 400
-    return "kill yourself"
+    else:
+        data = {
+            'message': 'NA'
+        }
+        return jsonify(data), 400
+    return "Did not find song"
 
 @app.route('/api/suggestions', methods=['GET', 'POST'])
 def suggestions():
